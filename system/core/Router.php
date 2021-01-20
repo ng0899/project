@@ -3,9 +3,22 @@
 
 class Router
 {
+    /**
+     * table of routers
+     * @var array
+     */
     public static $routers = [];
+
+    /**
+     * Current route
+     * @var array
+     */
     public static $route = [];
 
+    /**
+     * Add route in table of routers
+     * @param $route
+     */
     public static function add($route)
     {
         foreach ($route as $k => $val){
@@ -14,7 +27,7 @@ class Router
     }
 
     /**
-     * Метод проверяет совпадение с таблицей маршрутов
+     * Chech URL for the routers table
      *
      * @param $url - адресная строка
      * @return bool
@@ -57,6 +70,11 @@ class Router
         }
     }
 
+    /**
+     * Make right string for the controller name
+     * @param $str - name of class or method
+     * @return mixed|string
+     */
     private static function uStr($str)
     {
         $str = str_replace('-', ' ', $str);
