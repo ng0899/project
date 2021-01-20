@@ -29,7 +29,7 @@ class Router
     /**
      * Chech URL for the routers table
      *
-     * @param $url - адресная строка
+     * @param $url - URL
      * @return bool
      */
     public static function checkRoute($url)
