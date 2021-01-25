@@ -70,6 +70,7 @@ class Router
 
                 if(method_exists($obj, $action)){
                     $obj->$action();
+                    $obj->getView();
                 }else{
                     echo 'Метод ' . $action . ' не найден';
                 }
