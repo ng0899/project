@@ -13,7 +13,11 @@ class View
     public function __construct($route, $layout = "", $view = "")
     {
         $this->route = $route;
-        $this->layout = $layout ?: LAYOUT;
+        if($layout === false){
+            $this->layout = false;
+        }else{
+            $this->layout = $layout ?: LAYOUT;
+        }
         $this->view = $view;
     }
 
@@ -31,13 +35,17 @@ class View
 
         $content = ob_get_clean();
 
-        // /app/views/layouts/default.php
-        $path_layout = ROOT . '/app/views/layouts/' . $this->layout . '.php';
-        if(is_file($path_layout)){
-            require $path_layout;
-        }else{
-            echo 'шаблон ' . $this->layout . ' не найден';
-        }
+        if($this->layout !== false){
+            // /app/views/layouts/default.php
+            $path_layout = ROOT . '/app/views/layouts/' . $this->layout . '.php';
+            if(is_file($path_layout)){
+                require $path_layout;
+            }else{
+                echo 'шаблон ' . $this->layout . ' не найден';
 
+            }
+        }else{
+            echo $content;
+        }
     }
 }
