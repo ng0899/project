@@ -59,6 +59,9 @@ class Router
         return false;
     }
 
+    /**
+     * @param $path
+     */
     public static function dispatch($path)
     {
         if(self::checkRoute($path)){

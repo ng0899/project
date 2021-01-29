@@ -4,32 +4,15 @@
 namespace system\core;
 
 
-abstract class Controller
+class Controller
 {
     protected $route;
-    protected $layout;
+
     protected $view;
-    public $vars = [];
 
-
-    public function __construct($route, $view = '')
+    public function __construct($route)
     {
         $this->route = $route;
-        $this->view = $view ?: $route['action']; // определяем текущий вид
-    }
-
-    /**
-     *
-     */
-    public function getView()
-    {
-        $objView = new View($this->route, $this->layout, $this->view);
-        $objView->render($this->vars);
-
-    }
-
-    public function setVars($vars)
-    {
-        $this->vars = $vars;
+pr($route);
     }
 }
