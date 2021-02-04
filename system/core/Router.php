@@ -72,7 +72,11 @@ class Router
                 $action = self::lStr(self::$route['action']) . 'Action';
 
                 if(method_exists($obj, $action)){
-                    $obj->$action();
+                    if(isset(self::$route['id'])){
+                        $obj->$action(self::$route['id']);
+                    }else{
+                        $obj->$action();
+                    }
                     $obj->getView();
                 }else{
                     echo 'Метод ' . $action . ' не найден';
