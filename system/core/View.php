@@ -26,7 +26,7 @@ class View
         extract($vars);
         // /app/views/Main/index.php
         ob_start();
-        $path_view = ROOT . '/app/views/' . $this->route['controller'] . '/' . $this->view . '.php';
+        $path_view = ROOT . '/app/views/' . $this->route['prefix'] . $this->route['controller'] . '/' . $this->view . '.php';
         if(file_exists($path_view)){
             require $path_view;
         }else{

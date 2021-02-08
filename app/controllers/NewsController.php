@@ -4,10 +4,10 @@ namespace app\controllers;
 
 
 use app\models\News;
-use system\core\Controller;
 
-class NewsController extends Controller
+class NewsController extends AppController
 {
+
     public function viewAction()
     {
         $id = intval($this->route['id']);

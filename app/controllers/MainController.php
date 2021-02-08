@@ -5,9 +5,8 @@ namespace app\controllers;
 
 
 use app\models\News;
-use system\core\Controller;
 
-class MainController extends Controller
+class MainController extends AppController
 {
 
     public function indexAction()
@@ -17,7 +16,6 @@ class MainController extends Controller
 
         $this->setVars(['news' => $arNews]);
     }
-
 
 }
 
