@@ -24,4 +24,6 @@ $c = 1;
 
 <?$c++;?>
 <?endforeach;?>
+
+    <?=$pagination;?>
 </div>

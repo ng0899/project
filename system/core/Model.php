@@ -26,6 +26,19 @@ abstract class Model
         return $this->db->query($sql);
     }
 
+    public function findLimit($start, $limit)
+    {
+        $sql = "SELECT * FROM " . $this->table . " LIMIT $start, $limit";
+
+        return $this->db->query($sql);
+    }
+
+    public function count($params = [])
+    {
+        $arr = $this->findAll();
+        return count($arr);
+    }
+
     public function findOne($id, $pk = '')
     {
         if($pk != ''){
