@@ -21,6 +21,7 @@ spl_autoload_register(function($class){
 
 //Router::add(['^(?P<controller>[a-z0-9-]+)/(?P<alias>[a-z0-9-]+)$' => []]);
 
+Router::add(['^news/category/(?P<id>[0-9]+)/?$' => ['controller' => 'News', 'action' => 'view']]);
 Router::add(['^news/view/(?P<id>[0-9]+)/?$' => ['controller' => 'News', 'action' => 'view']]);
 
 //default admin

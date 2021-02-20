@@ -58,6 +58,7 @@ class Pagination
         return ($this->curPage - 1) * $this->perPage;
     }
 
+
     /**
      * сохраняет параметры адресной строки
      * @return array|string

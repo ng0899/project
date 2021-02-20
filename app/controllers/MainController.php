@@ -15,7 +15,7 @@ class MainController extends AppController
         $news = new News();
 
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perPage = 1;
+        $perPage = 3; //количество записей на странице
         $total = $news->count();
 
         $pagination = new Pagination($page, $perPage, $total);
