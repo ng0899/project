@@ -3,5 +3,5 @@
 return [
     'dsn' => 'mysql:host=localhost;dbname=project',
     'user' => 'root',
-    'pass' => ''
+    'pass' => 'root'
 ];

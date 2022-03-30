@@ -17,7 +17,12 @@ class Db
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
         ];
-        $this->pdo = new \PDO($db['dsn'], $db['user'], $db['pass'], $option);
+        try{
+            $this->pdo = new \PDO($db['dsn'], $db['user'], $db['pass'], $option);
+        }catch (\Exception $e){
+            trigger_error("Ошибка при подключении к базе данных!", E_USER_ERROR);
+        }
+
     }
 
     public static function instance()
@@ -39,11 +44,16 @@ class Db
     {
         self::$queries[] = $sql;
         $stmt = $this->pdo->prepare($sql);
-        $res = $stmt->execute($param);
-        if($res !== false){
-            return $stmt->fetchAll();
-        }else{
-            return [];
+        try{
+            $res = $stmt->execute($param);
+            if($res !== false){
+                return $stmt->fetchAll();
+            }else{
+                return [];
+            }
+        }catch (\Exception $e){
+            pr($e->getTraceAsString());
         }
+
     }
 }

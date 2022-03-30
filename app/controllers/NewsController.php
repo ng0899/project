@@ -14,9 +14,12 @@ class NewsController extends AppController
         $news = new News();
 
         $result = $news->findOne($id);
+
+
         if(!empty($result)){
             $this->setVars(['oneNews' => $result[0]]);
         }
 
     }
+
 }
